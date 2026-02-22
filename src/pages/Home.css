@@ -1,0 +1,31 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 2rem;
+}
+
+.cta-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.cta-button {
+  width: 200px;
+  height: 75px;
+  background: maroon;
+  color: aliceblue;
+  border: 3px solid black;
+  border-radius: 35px;
+  text-align: center;
+  padding: 10px;
+}
+
+.cta-text {
+  font-size: 25px;
+  text-decoration: none;
+}
