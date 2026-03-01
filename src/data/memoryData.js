@@ -1,3 +1,3 @@
 //! Los 6 emojis
 
-const emojis = ["🌈", "🪭", "🦄", "🐞", "🐉", "🪃"];
+export const emojis = ["🌈", "🪭", "🦄", "🐞", "🐉", "🪃"];

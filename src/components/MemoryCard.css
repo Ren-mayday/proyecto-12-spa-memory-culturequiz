@@ -1,0 +1,10 @@
+.memory-card {
+  width: 8rem;
+  height: 10rem;
+  background-color: greenyellow;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}

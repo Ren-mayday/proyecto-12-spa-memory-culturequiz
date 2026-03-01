@@ -4,13 +4,22 @@ import "./Home.css";
 const Home = () => {
   return (
     <main className="home">
-      <h1>¡Bienvenidos! Empecemos a jugar</h1>
+      <div className="home-hero">
+        <p className="home-eyebrow">Elige tu juego</p>
+        <h1 className="home-title">
+          Pon a prueba <span>tu mente</span>
+        </h1>
+      </div>
       <div className="cta-section">
-        <Link to="/memory" className="cta-button memory-cta">
-          <span className="cta-text">Memory Game</span>
+        <Link to="/memory" className="game-card">
+          <span className="game-card__icon">🃏</span>
+          <spa className="game-card__title">Memory Game</spa>
+          <spa className="game-card__desc">Encuentra todas las parejas</spa>
         </Link>
-        <Link to="/cultural-quiz" className="cta-button cta-quiz">
-          <span className="cta-text">Quiz de cultura general</span>
+        <Link to="/cultural-quiz" className="game-card">
+          <span className="game-card__icon">🎨</span>
+          <span className="game-card__title">Quiz Cultural</span>
+          <span className="game-card__desc">Arte e historia del mundo</span>
         </Link>
       </div>
     </main>
