@@ -16,5 +16,21 @@ export function useMemory() {
     }
   }, [state.flippedCards]);
 
-  return { state, initGame, flipCard, checkMatch };
+  useEffect(() => {
+    if (!state.isStarted || state.isFinished) return;
+
+    const interval = setInterval(() => {
+      dispatch({ type: "TICK" });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [state.isStarted, state.isFinished]);
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  };
+
+  return { state, initGame, flipCard, checkMatch, formatTime };
 }

@@ -5,7 +5,7 @@ import { useMemory } from "../customHooks/useMemory";
 import MemoryBoard from "../components/MemoryBoard";
 
 const MemoryPage = () => {
-  const { state, initGame, flipCard } = useMemory();
+  const { state, initGame, flipCard, formatTime } = useMemory();
   useEffect(() => {
     initGame();
   }, []);
@@ -20,10 +20,10 @@ const MemoryPage = () => {
         <h2>Memory Game</h2>
         <div className="game-controls">
           <div className="score-container">
-            <span id="score">Puntuación: {state.matchedPairs}</span>
+            <span id="score">Puntuación: {state.score}</span>
           </div>
           <div className="timer-container">
-            <span id="timer">Tiempo: 00:00</span>
+            <span id="timer">Tiempo: {formatTime(state.time)}</span>
           </div>
         </div>
       </header>

@@ -8,6 +8,9 @@ export const initialGameState = {
   attempts: 0,
   isFinished: false,
   isChecking: false,
+  score: 0,
+  time: 0,
+  isStarted: false,
 };
 
 export function memoryReducer(state, action) {
@@ -25,6 +28,8 @@ export function memoryReducer(state, action) {
       return { ...state, cards: shuffleCards };
     case "FLIP_CARD":
       if (state.isChecking || state.flippedCards.length === 2) return state;
+      const cardToFlip = state.cards.find((card) => card.id === action.payload);
+      if (!cardToFlip || cardToFlip.isFlipped || cardToFlip.isMatched) return state;
       const updatedCards = state.cards.map((card) =>
         card.id === action.payload ? { ...card, isFlipped: true } : card,
       );
@@ -33,6 +38,7 @@ export function memoryReducer(state, action) {
         ...state,
         cards: updatedCards,
         flippedCards: [...state.flippedCards, flippedCard],
+        isStarted: true,
       };
     case "CHECK_MATCH":
       const [first, second] = state.flippedCards;
@@ -50,6 +56,7 @@ export function memoryReducer(state, action) {
           matchedPairs: newMatchedPairs,
           isFinished: newMatchedPairs === 6,
           isChecking: false,
+          score: state.score + 1,
         };
       } else {
         const updatedCards = state.cards.map((card) =>
@@ -61,8 +68,11 @@ export function memoryReducer(state, action) {
           flippedCards: [],
           attempts: state.attempts + 1,
           isChecking: false,
+          score: state.score - 1,
         };
       }
+    case "TICK":
+      return { ...state, time: state.time + 1 };
 
     default:
       return state;
