@@ -1,5 +1,13 @@
 .memory-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+@media (max-width: 420px) {
+  .memory-board {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
 }

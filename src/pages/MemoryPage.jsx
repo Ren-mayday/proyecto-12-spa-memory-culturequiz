@@ -7,8 +7,6 @@ import MemoryBoard from "../components/MemoryBoard";
 const MemoryPage = () => {
   const { state, initGame, flipCard, formatTime, bestRecord } = useMemory();
 
-  console.log("state.cards:", state.cards);
-
   useEffect(() => {
     initGame();
   }, []);
@@ -17,16 +15,15 @@ const MemoryPage = () => {
     <main className="memory-view">
       <header className="memory-header">
         <Link className="btn-back" to="/">
-          {" "}
           ⬅️ Volver a la Home
         </Link>
         <h2>Memory Game</h2>
         <div className="game-controls">
           <div className="score-container">
-            <span id="score">Puntuación: {state.score}</span>
+            <span>Puntuación: {state.score}</span>
           </div>
           <div className="timer-container">
-            <span id="timer">Tiempo: {formatTime(state.time)}</span>
+            <span>Tiempo: {formatTime(state.time)}</span>
           </div>
         </div>
       </header>
@@ -35,7 +32,7 @@ const MemoryPage = () => {
         <MemoryBoard cards={state.cards} flipCard={flipCard} />
       </section>
 
-      {/* Modal */}
+      {/* Modal de victoria */}
       {state.isFinished && (
         <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <div className="modal">
@@ -44,30 +41,34 @@ const MemoryPage = () => {
             <div className="modal-stats">
               <div className="modal-stat">
                 <span className="modal-stat__label">Puntuación</span>
+                <span className="modal-stat__value">{state.score}</span>
+              </div>
+              <div className="modal-stat">
+                <span className="modal-stat__label">Tiempo</span>
                 <span className="modal-stat__value">{formatTime(state.time)}</span>
               </div>
             </div>
-          </div>
 
-          {bestRecord.score !== null && (
-            <div className="modal-best">
-              <h3>🏆 Mejor puntuación</h3>
-              <div className="modal-stats">
-                <div className="modal-stat">
-                  <span className="modal-stat__label">Puntuación</span>
-                  <span className="modal-stat__value">{bestRecord.score}</span>
-                </div>
-                <div className="modal-stat">
-                  <span className="modal-stat__label">Tiempo</span>
-                  <span className="modal-stat__value">formatTime(bestRecord.time)</span>
+            {bestRecord.score !== null && (
+              <div className="modal-best">
+                <h3>🏆 Mejor puntuación</h3>
+                <div className="modal-stats">
+                  <div className="modal-stat">
+                    <span className="modal-stat__label">Puntuación</span>
+                    <span className="modal-stat__value">{bestRecord.score}</span>
+                  </div>
+                  <div className="modal-stat">
+                    <span className="modal-stat__label">Tiempo</span>
+                    <span className="modal-stat__value">{formatTime(bestRecord.time)}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <button className="btn-play-again" onClick={initGame}>
-            Jugar de nuevo
-          </button>
+            <button className="btn-play-again" onClick={initGame}>
+              Jugar de nuevo
+            </button>
+          </div>
         </div>
       )}
     </main>
