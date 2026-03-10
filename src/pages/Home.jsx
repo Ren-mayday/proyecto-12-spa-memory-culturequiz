@@ -13,8 +13,8 @@ const Home = () => {
       <div className="cta-section">
         <Link to="/memory" className="game-card">
           <span className="game-card__icon">🃏</span>
-          <spa className="game-card__title">Memory Game</spa>
-          <spa className="game-card__desc">Encuentra todas las parejas</spa>
+          <span className="game-card__title">Memory Game</span>
+          <span className="game-card__desc">Encuentra todas las parejas</span>
         </Link>
         <Link to="/cultural-quiz" className="game-card">
           <span className="game-card__icon">🎨</span>
