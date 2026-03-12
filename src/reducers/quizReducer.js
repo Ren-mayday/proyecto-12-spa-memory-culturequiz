@@ -2,16 +2,18 @@ export const TOTAL_QUESTIONS = 5;
 export const TIME_PER_QUESTION = 15;
 
 // Helpers
+export function shuffleArray(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+// Open Trivia DB devuelve entidades HTML codificadas
 export function decodeHTML(str) {
   const txt = document.createElement("textarea");
   txt.innerHTML = str;
   return txt.value;
 }
 
-export function shuffleArray(arr) {
-  return [...arr].sort(() => Math.random() - 0.5);
-}
-
+// Open Trivia DB: { question, correct_answer, incorrect_answers[] }
 export function parseQuestions(results) {
   return results.map((q) => ({
     question: decodeHTML(q.question),
@@ -38,7 +40,7 @@ export function quizReducer(state, action) {
     case "LOAD_SUCCESS": {
       return {
         ...initialState,
-        question: action.payload,
+        questions: action.payload,
         isLoading: false,
       };
     }
@@ -49,7 +51,7 @@ export function quizReducer(state, action) {
 
     case "SELECT_ANSWER": {
       if (state.selectedAnswer !== null) return state;
-      const isCorrect = action.payload === state.questions[state.currentIndex.correct];
+      const isCorrect = action.payload === state.questions[state.currentIndex].correct;
       return {
         ...state,
         selectedAnswer: action.payload,
@@ -65,7 +67,7 @@ export function quizReducer(state, action) {
     case "NEXT_QUESTION": {
       const next = state.currentIndex + 1;
       if (next >= state.questions.length) {
-        return { state, isFinished: true };
+        return { ...state, isFinished: true };
       }
       return {
         ...state,

@@ -50,3 +50,134 @@ body {
     radial-gradient(ellipse 600px 400px at 85% 100%, rgba(167, 139, 250, 0.1) 0%, transparent 60%);
   background-attachment: fixed;
 }
+
+/* Tipografía compartida */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-weak);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-4);
+}
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.page-title span {
+  color: var(--primary);
+}
+
+/* Botón volver */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-weak);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.btn-back:hover {
+  background: rgba(124, 58, 237, 0.18);
+}
+
+.btn-back:active {
+  transform: scale(0.97);
+}
+
+/* Botón primario */
+.btn-primary {
+  padding: 0.75rem 2.25rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--primary-glow);
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background: #6d28d9;
+  box-shadow: 0 8px 24px var(--primary-glow);
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Botón outline */
+.btn-outline {
+  padding: 0.75rem 2.25rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.btn-outline:hover {
+  background: var(--primary-weak);
+}
+.btn-outline:active {
+  transform: scale(0.97);
+}
+
+/* Card genérica */
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Píldora de stat */
+.stat-pill {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  box-shadow: var(--shadow-card);
+}

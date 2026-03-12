@@ -18,8 +18,8 @@ const Home = () => {
         </Link>
         <Link to="/cultural-quiz" className="game-card">
           <span className="game-card__icon">🎨</span>
-          <span className="game-card__title">Quiz Cultural</span>
-          <span className="game-card__desc">Arte e historia del mundo</span>
+          <span className="game-card__title">Trivial Quiz</span>
+          <span className="game-card__desc">En inglés</span>
         </Link>
       </div>
     </main>

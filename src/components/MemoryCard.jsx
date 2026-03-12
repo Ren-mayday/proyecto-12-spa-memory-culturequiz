@@ -1,5 +1,4 @@
 //! Carta individual
-import "./MemoryCard.css";
 
 const MemoryCard = ({ card, flipCard }) => {
   return (
