@@ -4,8 +4,6 @@ import MemoryPage from "./pages/MemoryPage.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import QuizGamePage from "./pages/QuizGamePage.jsx";
 
-import "./App.css";
-
 function App() {
   return (
     <Routes>
