@@ -1,0 +1,85 @@
+.quiz-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--space-12);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  position: relative;
+}
+
+.quiz-select__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Difficulty cards */
+.quiz-select__cards {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.difficulty-card {
+  width: 180px;
+  padding: var(--space-8) var(--space-6);
+  background: var(--card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.difficulty-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-hover);
+}
+
+.difficulty-card__emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.difficulty-card__label {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.difficulty-card__desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .quiz-select {
+    gap: var(--space-8);
+  }
+
+  .difficulty-card {
+    width: 100%;
+    max-width: 320px;
+    flex-direction: row;
+    padding: var(--space-4) var(--space-6);
+    text-align: left;
+  }
+
+  .difficulty-card__emoji {
+    font-size: 2rem;
+  }
+}
