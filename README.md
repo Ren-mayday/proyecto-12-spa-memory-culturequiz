@@ -1,16 +1,110 @@
-# React + Vite
+# Proyecto 12 Memory & Trivia Cultural Quiz - React SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Developed with React + Vite. SPA composed by two interactive games: memoty game with emojis and a trivial quiz with questions from an external API.
+---
 
-Currently, two official plugins are available:
+## Demo
+https://spa-memory-culturequiz-react.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+## 🛠️ Technologies
+- React
+- Vite
+- React Router DOM v6
+- CSS Modules
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📁 Project structure
+```
+src/
+├── pages/
+│   ├── Home.jsx
+│   ├── MemoryPage.jsx
+│   ├── QuizPage.jsx
+│   └── QuizGamePage.jsx
+├── components/
+│   ├── MemoryBoard.jsx
+│   ├── MemoryCard.jsx
+│   ├── QuizQuestion.jsx
+│   ├── QuizAnswers.jsx
+│   └── QuizResult.jsx
+├── customHooks/
+│   ├── useMemory.js
+│   └── useQuiz.js
+├── reducers/
+│   ├── memoryReducer.js
+│   └── quizReducer.js
+└── data/
+    └── memoryData.js
+```
+---
 
-## Expanding the ESLint configuration
+## Games
+### 🃏 Memory Game
+- Table of 12 cards (6 pairs of emojis)
+- Chronometer starts with the first turned card
+- Score system (+1 matched / -1 not matched)
+- Modal with score, time and best score stored on ```localStorage```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 🎨 Trivial Cultural Quiz
+- Selection of difficulty: Easy/ Medium / Hard
+- 5 questions per game with 4 options for answers
+- Timer of 15 seconds per question 
+- Visual feedback: green: (correct) / red (incorrect)
+- Screen with results with an emoji and a dynamic message according to the score
+
+---
+
+### ✅ Project requirements covered
+
+| Requirements | Implementation |
+| ------------ | -------------- |
+Responsive | Media questies in all components
+Good practices with HTML/CSS | Correct semantics, CSS variables, BEM 
+Minimum of 3 states with lógic | ```useReducer``` Memory and Quiz with multiple states
+Minimum of useEffect | Examples fetch, timer, timout, localStorage
+API request | Open Trivia DB (```opentdb.com```) with ```&lang=es```
+React Router with parameter | ```/cultural-quiz/:difficulty``` read with ```useParams()```
+
+---
+
+### 🔌 API
+
+It is used Open Trivia DB - free, without API key
+
+``` https://opentdb.com/api.php?amount=5&type=multiple&difficulty=easy&lang=es ```
+> ⚠️ Questions are in English if there is not enough translations available in Spanish for the difficulty selected. (Most of them are in English).
+
+⚙️ Instalation and use
+
+```
+# Clonar el repositorio
+git clone https://github.com/Ren-mayday/proyecto-12-spa-memory-culturequiz
+
+# Instalar dependencias
+npm install
+
+# Arrancar en desarrollo
+npm run dev
+
+# Build para producción
+npm run build
+```
+
+---
+
+## 📌 Routes
+
+| Route | Component | Description |
+|`/`|`Home`| Selection's game screen |
+|`/memory`|`MemoryPage` | Memory game |
+|`/cultural-quiz`| `QuizPage` | Selection of difficulty |
+| `/cultural-quiz/:difficulty` | `QuizGamePage` | Game quiz |
+
+---
+
+### 👩🏽‍💻 Author
+Developed by Rencel for RockTehCode Course
