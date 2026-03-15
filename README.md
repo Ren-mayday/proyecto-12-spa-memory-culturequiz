@@ -99,6 +99,7 @@ npm run build
 ## 📌 Routes
 
 | Route | Component | Description |
+| ----- | --------- | ----------- |
 |`/`|`Home`| Selection's game screen |
 |`/memory`|`MemoryPage` | Memory game |
 |`/cultural-quiz`| `QuizPage` | Selection of difficulty |
